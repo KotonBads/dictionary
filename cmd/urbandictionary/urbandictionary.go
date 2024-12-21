@@ -7,28 +7,8 @@ import (
 
 	"github.com/KotonBads/dictionary/api"
 	"github.com/KotonBads/dictionary/api/urbandictionary"
-	"github.com/charmbracelet/lipgloss"
+	"github.com/KotonBads/dictionary/internal/styles"
 	"github.com/charmbracelet/lipgloss/list"
-)
-
-var (
-	baseStyle = lipgloss.NewStyle().
-			Width(80).
-			Foreground(lipgloss.Color("7")).
-			TabWidth(2)
-	headerStyle = baseStyle.
-			Bold(true).
-			Foreground(lipgloss.Color("12"))
-	textStyle = baseStyle.
-			Foreground(lipgloss.Color("10"))
-	synonymStyle = baseStyle.
-			Foreground(lipgloss.Color("10"))
-	antonymStyle = baseStyle.
-			Foreground(lipgloss.Color("9"))
-	exampleStype = baseStyle.
-			PaddingLeft(2)
-	wordStyle = headerStyle.
-			Foreground(lipgloss.Color("15"))
 )
 
 func main() {
@@ -50,12 +30,12 @@ func main() {
 		panic(err)
 	}
 
-	fmt.Println(wordStyle.Render(res.Word))
+	fmt.Println(styles.WordStyle.Render(res.Word))
 
 	for _, i := range res.Meanings {
-		fmt.Println(headerStyle.Render(i.PartOfSpeech))
+		fmt.Println(styles.HeaderStyle.Render(i.PartOfSpeech))
 		fmt.Println(
-			textStyle.Render(
+			styles.TextStyle.Render(
 				list.New(
 					i.Definition,
 				).String(),
@@ -68,7 +48,7 @@ func main() {
 		}
 
 		fmt.Println(
-			exampleStype.Render(
+			styles.ExampleStyle.Render(
 				list.New(
 					i.Examples,
 				).String(),
