@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"strings"
 
 	"github.com/KotonBads/dictionary/api"
 	"github.com/KotonBads/dictionary/api/urbandictionary"
@@ -33,7 +34,7 @@ func main() {
 		fmt.Println("Please provide a word to look up.")
 		return
 	}
-	word := os.Args[1]
+	words := os.Args[1:]
 	res, err := api.GetDefinition(
 		urbandictionary.UrbanDictionary{
 			Strict:    false,
@@ -41,7 +42,7 @@ func main() {
 			MatchCase: false,
 			Page:      1,
 		},
-		word,
+		strings.Join(words, "%20"),
 	)
 	if err != nil {
 		panic(err)

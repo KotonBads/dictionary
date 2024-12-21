@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"strings"
 
 	"github.com/KotonBads/dictionary/api"
 	"github.com/KotonBads/dictionary/api/dictionaryapi"
@@ -33,8 +34,11 @@ func main() {
 		fmt.Println("Please provide a word to look up.")
 		return
 	}
-	word := os.Args[1]
-	res, err := api.GetDefinition(dictionaryapi.DictionaryApi{}, word)
+	words := os.Args[1:]
+	res, err := api.GetDefinition(
+		dictionaryapi.DictionaryApi{},
+		strings.Join(words, "%20"),
+	)
 	if err != nil {
 		panic(err)
 	}
