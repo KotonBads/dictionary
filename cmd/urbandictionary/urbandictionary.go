@@ -27,6 +27,8 @@ var (
 			Foreground(lipgloss.Color("9"))
 	exampleStype = baseStyle.
 			PaddingLeft(2)
+	wordStyle = headerStyle.
+			Foreground(lipgloss.Color("15"))
 )
 
 func main() {
@@ -47,6 +49,8 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+
+	fmt.Println(wordStyle.Render(res.Word))
 
 	for _, i := range res.Meanings {
 		fmt.Println(headerStyle.Render(i.PartOfSpeech))
