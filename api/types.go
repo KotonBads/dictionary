@@ -1,6 +1,7 @@
 package api
 
 type Word struct {
+	Word     string
 	Meanings []Meaning
 	Synonyms []string
 	Antonyms []string
