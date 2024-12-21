@@ -16,7 +16,7 @@ var (
 			Foreground(lipgloss.Color("10"))
 	AntonymStyle = BaseStyle.
 			Foreground(lipgloss.Color("9"))
-	ExampleStype = BaseStyle.
+	ExampleStyle = BaseStyle.
 			PaddingLeft(2)
 	WordStyle = HeaderStyle.
 			Foreground(lipgloss.Color("15"))
