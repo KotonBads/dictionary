@@ -64,6 +64,7 @@ func (ub UrbanDictionary) Fetch(word string) (api.Word, error) {
 		m.Examples = append(m.Examples, strings.Split(i.Example, "\n")...)
 		w.Meanings = append(w.Meanings, m)
 	}
+	w.Word = q.Term
 
 	return w, nil
 }

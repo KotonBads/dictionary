@@ -54,6 +54,7 @@ func (d DictionaryApi) Fetch(word string) (api.Word, error) {
 			w.Synonyms = append(w.Synonyms, j.Synonyms...)
 		}
 		w.Sources = append(w.Sources, i.Sources...)
+		w.Word = i.Word
 	}
 
 	return w, nil
