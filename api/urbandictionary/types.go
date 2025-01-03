@@ -1,14 +1,15 @@
 package urbandictionary
 
 type UrbanDictionary struct {
-	Strict bool
-	Limit int
+	Strict    bool
+	Limit     int
 	MatchCase bool
-	Page int
+	Page      int
 }
 
 type response struct {
 	StatusCode int    `json:"statusCode"`
+	Message    string `json:"message"`
 	Term       string `json:"term"`
 	Found      bool   `json:"found"`
 	Params     params `json:"params"`

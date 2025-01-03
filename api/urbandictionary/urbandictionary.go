@@ -50,7 +50,7 @@ func (ub UrbanDictionary) Fetch(word string) (api.Word, error) {
 	}
 	
 	if q.StatusCode != 200 {
-		return w, fmt.Errorf("received http %d", q.StatusCode)
+		return w, fmt.Errorf("http %d: %s", q.StatusCode, q.Message)
 	}
 
 	for _, i := range q.Data {
