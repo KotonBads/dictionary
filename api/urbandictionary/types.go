@@ -13,7 +13,6 @@ type response struct {
 	Term       string `json:"term"`
 	Found      bool   `json:"found"`
 	Params     params `json:"params"`
-	TotalPages string `json:"totalPages"`
 	Data       []data `json:"data"`
 }
 
